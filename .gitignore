@@ -1,0 +1,5 @@
+env
+codevz.com
+db.*
+__pycache__
+*.pyi
