@@ -19,4 +19,14 @@ class Music(models.Model):
         
 
 class News(models.Model):
-    title = models.CharField(max_length=255, verbose_name='описание')
+    title = models.CharField(max_length=255, verbose_name='название')
+    text = models.TextField(verbose_name='описание')
+    image = models.ImageField(verbose_name='фото',upload_to='new/')
+    created = models.DateTimeField(verbose_name='дата', auto_now_add=True)
+    
+    def __str__(self):
+        return f'Название: {self.title}, Дата: {self.created}'
+    
+    class Meta:
+        verbose_name = 'Новость'
+        verbose_name_plural = 'Новости'
