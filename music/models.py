@@ -17,4 +17,6 @@ class Music(models.Model):
         verbose_name = 'Музыка'
         verbose_name_plural = 'Музыки'
         
-    
+
+class News(models.Model):
+    title = models.CharField(max_length=255, verbose_name='описание')
