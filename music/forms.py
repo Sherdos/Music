@@ -1,15 +1,14 @@
-
-from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 
 
-
-class RegisterForm(UserCreationForm):
+class NewsForm(forms.Form):
+    title = forms.CharField(max_length=255)
+    text = forms.CharField(widget=forms.Textarea)
+    image = forms.FileField()
     
-    class Meta:
-        model = User
-        fields = ('username','password1','password2')
-        
-
+class RegisterForm(forms.Form):
+    username = forms.CharField(max_length=255, min_length=5)
+    email = forms.EmailField(max_length=255)
+    password1 = forms.CharField(max_length=255, widget=forms.PasswordInput)
+    password2 = forms.CharField(max_length=255, widget=forms.PasswordInput)
+    

@@ -8,12 +8,11 @@
 <body>
     <form method="post" action="" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="title">Title: </label>
-        <input type="text" name="title" id="title"  ></p>
-        <label for="text">text: </label>
-        <textarea name="text" id="text"></textarea></p>
-        <label for="image">image: </label>
-        <input type="file" name="image" id="image"></p>
+        
+        {% for f in form %}
+        <label for="{{f.label.id}}">{{f.label}}:</label>
+            {{f}}</p>
+        {% endfor %}
         <button type="submit">Submit</button>
     </form>
 </body>

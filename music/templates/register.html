@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+	
+	
+<body id="fluidGridSystem">
+	<div id="layout" class="full">
+		
+
+		{% include 'components/navbar.html' %}
+		<div class="" style="margin-top: 500px;">
+
+            <form method="post"  action="{% url 'user_register' %}" id="popup_login_form"> 
+                {% csrf_token %}  
+                {{form}}
+                <button type="submit" class="tbutton small"><span>Sign In</span></button>
+                <button type="submit" class="tbutton small"><span>Register</span></button>
+            </form><!-- login form -->
+        </div>
+		
+		{% include 'components/footer.html' %}
+		</div>
+		
+{% endblock content %}
