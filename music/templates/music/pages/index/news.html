@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="span8">
+    <div class="def-block">
+        <h4> Последнии новости </h4><span class="liner"></span>
+        news_single.html
+        {% for new in news %}
+        <div class="news row-fluid animtt" data-gen="fadeUp" style="opacity:0;">
+            <div class="span5"><img class="four-radius" src="{{new.image.url}}" alt="#"></div>
+            <div class="span7">
+                <h3 class="news-title"> <a href="news_single.html">{{new.title}}</a> </h3>
+                <p>{{new.text}}</p>
+                <div class="meta">
+                    <span> <i class="icon-time mi"></i>{{new.created}} </span> | <span> <a href="#"><i class="icon-comments-alt"></i> 14</a> </span>
+                </div><!-- meta -->
+                <a href="{% url 'show_news' new.id %}" class="sign-btn tbutton small"><span>Подробнее</span></a>
+            </div><!-- span7 -->
+        </div><!-- news -->
+        {% endfor %}
+        <div class="load-news tac"><a href="#" class="tbutton small"><span>Болше</span></a></div>
+    </div><!-- def block -->
+</div><!-- span8 news -->

@@ -53,12 +53,12 @@
     <div class="headdown">
         <div class="row clearfix">
             <div class="logo bottomtip" title="Best and Most Popular Musics">
-                <a href="#"><img src="{% static 'images/logo.png' %}" alt="Best and Most Popular Musics"></a>
+                <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="Best and Most Popular Musics"></a>
             </div><!-- end logo -->
 
             <nav>
                 <ul class="sf-menu">
-                    <li class="current selectedLava"><a href="index.html">Главная</a></li>
+                    <li class="current selectedLava"><a href="{% url 'index' %}">Главная</a></li>
                     <li><a href="index.html">Мои треки</a></li>
                     <li><a href="mp3s.html">Популярные</a></li>
                     <li><a href="videos.html">Новые</a></li>

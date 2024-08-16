@@ -1,0 +1,123 @@
+{% extends 'music/base.html' %}
+{% load static %}
+{% block content %}
+<body id="fluidGridSystem">
+	<div id="layout" class="full">
+
+		{% include 'components/navbar.html' %}
+
+		{% include 'music/pages/index/slider.html' %}
+
+		
+
+		<div class="page-content">
+			
+		{% include 'music/pages/index/player.html' %}
+
+			<div class="row row-fluid clearfix mbf">
+				
+			{% include 'music/pages/index/news.html' %}
+
+				<div class="span4">
+					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+						<h4> Events </h4><span class="liner"></span>
+						<div class="widget-content row-fluid">
+							<div class="span12 mb">
+								<ul id="event1" class="event-timer">
+									<li>
+										<span class="days">00</span>
+										<p class="timeRefDays">days</p>
+									</li>
+									<li>
+										<span class="hours">00</span>
+										<p class="timeRefHours">hours</p>
+									</li>
+									<li>
+										<span class="minutes">00</span>
+										<p class="timeRefMinutes">min</p>
+									</li>
+									<li>
+										<span class="seconds">00</span>
+										<p class="timeRefSeconds">sec</p>
+									</li>
+								</ul> <!-- end timer -->
+							</div><!-- timer -->
+
+							<div class="grid_8">
+								<p class="event-titlett">Bono Serenades Warren</p>
+							</div>
+							<div class="grid_4">
+								<a href="#" class="tbutton buy-ticket small"><span>Buy Ticket</span></a>
+							</div>
+
+						</div><!-- widget content -->
+					</div><!-- def block widget events -->
+
+					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+						<h4> Featured Videos </h4><span class="liner"></span>
+						<div class="widget-content row-fluid">
+							<div class="videos clearfix flexslider">
+								<ul class="slides">
+									<li class="featured-video">
+										<a href="video_single_wide.html">
+											<img src="{% static 'images/assets/video1.jpg' %}" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>I Know You Want Me</h3>
+											<span>Fitbull</span>
+										</a>
+									</li><!-- slide -->
+									<li class="featured-video">
+										<a href="video_single_wide.html">
+											<img src="{% static 'images/assets/video2.jpg' %}" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>I Like It</h3>
+											<span>Enrique</span>
+										</a>
+									</li><!-- slide -->
+									<li class="featured-video">
+										<a href="video_single_wide.html">
+											<img src="{% static 'images/assets/video3.jpg' %}" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>Tommorow</h3>
+											<span>Dj Michele</span>
+										</a>
+									</li><!-- slide -->
+								</ul>
+							</div>
+						</div><!-- widget content -->
+					</div><!-- def block widget videos -->
+
+					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
+						<h4> Popular Tracks </h4><span class="liner"></span>
+						<div class="widget-content row-fluid">
+							<div class="scroll-mp3" style="height: 220px;">
+								<div class="content">
+									<ul class="tab-content-items">
+									
+									{% for track in new_tracks %}
+										
+									<li class="clearfix">
+										<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="{% static 'images/assets/thumb-mp3-1.jpg' %}" alt="#"></a>
+										<h3><a href="mp3_single_half.html">{{track.title}}</a></h3>
+										<span> Alexander </span>
+										<span> 1,892,250 Plays </span>
+									</li>
+									{% endfor %}
+										
+									</ul>
+								</div>
+							</div>
+						</div><!-- widget content -->
+					</div><!-- def block widget popular items -->
+
+				</div><!-- span4 sidebar -->
+			</div><!-- row clearfix -->
+
+		</div><!-- end page content -->
+	
+
+	{% include 'components/footer.html' %}
+	</div>
+	
+{% endblock content %}
+	

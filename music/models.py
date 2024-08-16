@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -30,3 +31,18 @@ class News(models.Model):
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'
+        
+        
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
+    news = models.ForeignKey('music.News', on_delete=models.CASCADE, verbose_name='Новость')
+    text = models.TextField(verbose_name='текст')
+    date = models.DateTimeField(verbose_name='дата', auto_now_add=True)
+    
+    def __str__(self):
+        return f'пользователь: {self.user}, Дата: {self.date}'
+    
+    
+    class Meta:
+        verbose_name = 'Коментарий'
+        verbose_name_plural = 'Коментарии'

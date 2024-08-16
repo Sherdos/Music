@@ -1,5 +1,5 @@
 from django import forms
-
+from django.contrib.auth.models import User
 
 class NewsForm(forms.Form):
     title = forms.CharField(max_length=255)
@@ -19,6 +19,13 @@ class RegisterForm(forms.Form):
         if password1 != password2:
             raise forms.ValidationError('Пароли не совпадают')
         return password2
+    
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        user = User.objects.filter(username=username)
+        if len(user) > 0:
+            raise forms.ValidationError('Логин занять')
+        return username
     
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=255, min_length=5, label='Логин')

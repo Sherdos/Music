@@ -24,7 +24,7 @@ def index(request):
         'new_tracks':new_tracks,
         'form':form,
     }
-    return render(request, 'index.html', context)
+    return render(request, 'music/pages/index/index.html', context)
 
 
 def show_news(request,id):
@@ -32,7 +32,7 @@ def show_news(request,id):
     context = {
         'news':news
     }
-    return render(request, 'show_news.html',context)
+    return render(request, 'music/pages/show_news.html',context)
 
 
 
@@ -48,7 +48,7 @@ def user_register(request):
     else:
         form = RegisterForm()
         
-    return render(request, 'register.html', {'form':form})
+    return render(request, 'music/pages/register.html', {'form':form})
 
 def user_login(request):
     form = LoginForm(request.POST)
@@ -65,7 +65,7 @@ def test(request):
             News.objects.create(**data)
     else:
         form = NewsForm()
-    return render(request, 'test.html',{'form':form})
+    return render(request, 'music/pages/test.html',{'form':form})
 
 
 def logout_user(request):

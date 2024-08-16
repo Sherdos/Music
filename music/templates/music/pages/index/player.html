@@ -1,0 +1,53 @@
+{% load static %}
+
+<div class="row clearfix mbf">
+    <div class="music-player-list">
+        <div class="ttw-music-player">' 
+            <div class="player jp-interface"> 
+            <div class="album-cover"> 
+            <span class="img"></span> 
+                        <span class="highlight"></span> 
+                    </div> 
+                    <div class="track-info"> 
+                        <p class="title">
+                            {{music.title}}
+                        </p> 
+                        <p class="artist-outer">By <span class="artist"></span></p> 
+                        <div class="rating"> 
+                            <span class="rating-level rating-star on"></span> 
+                            <span class="rating-level rating-star on"></span> 
+                            <span class="rating-level rating-star on"></span> 
+                            <span class="rating-level rating-star on"></span> 
+                            <span class="rating-level rating-star"></span> 
+                        </div> 
+                    </div> 
+                    <div class="player-controls"> 
+                        <audio controls>
+                            <source src="{{music.file.url}}"  type="audio/mpeg">
+                        </audio>
+                    </div> 
+                </div> 
+                <div class="tracklist"> 
+                    <ol class="tracks">
+                        
+                        {% for track in musics %}
+                        <li class="track">
+                            <a href="{% url 'index' %}?track={{track.id}}"><span class="title">
+                                {{track.title}}
+                            </span></a>
+                            <span class="duration">0:38</span>
+                            <span class="rating"><span class="rating-level rating-bar on"></span>
+                            <span class="rating-level rating-bar on"></span>
+                            <span class="rating-level rating-bar on"></span>
+                            <span class="rating-level rating-bar on"></span>
+                            <span class="rating-level rating-bar on"></span>
+                        </span>
+                    </li>	
+                    {% endfor %}
+                    </ol> 
+                    <div class="more">View More...</div> 
+                </div> 
+                <div class="jPlayer-container"></div> 
+            </div>
+    </div>
+</div><!-- row music player -->
