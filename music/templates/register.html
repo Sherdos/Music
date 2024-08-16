@@ -6,17 +6,16 @@
 	
 	
 <body id="fluidGridSystem">
-	<div id="layout" class="full">
+	<div id="layout" class="full" style="display: flex;">
 		
 
 		{% include 'components/navbar.html' %}
-		<div class="" style="margin-top: 500px;">
+		<div class="" >
 
-            <form method="post"  action="{% url 'user_register' %}" id="popup_login_form"> 
+            <form method="post" style="margin-top: 150px; margin-left: 700px;"  action="{% url 'user_register' %}" id="popup_login_form"> 
                 {% csrf_token %}  
                 {{form}}
-                <button type="submit" class="tbutton small"><span>Sign In</span></button>
-                <button type="submit" class="tbutton small"><span>Register</span></button>
+                <button type="submit" class="tbutton small"><span>Регистрация</span></button>
             </form><!-- login form -->
         </div>
 		

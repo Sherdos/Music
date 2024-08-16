@@ -4,7 +4,7 @@
     <div class="def-block widget">
         <h4> Sign In </h4><span class="liner"></span>
         <div class="widget-content row-fluid">
-            <form method="post" action="{% url 'user_register' %}" id="popup_login_form"> 
+            <form method="post" action="{% url 'user_login' %}" id="popup_login_form"> 
                 {% csrf_token %}  
                 {{form}}
                 <button type="submit" class="tbutton small"><span>Войти</span></button>

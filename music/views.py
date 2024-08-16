@@ -3,13 +3,13 @@ from music.models import Music, News
 from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from music.forms import NewsForm,RegisterForm
+from music.forms import NewsForm,RegisterForm, LoginForm
 
 # Create your views here.
 
 
 def index(request):
-    form = RegisterForm()
+    form = LoginForm()
     music = Music.objects.latest('id')
     news = News.objects.all().order_by('-id')
     new_tracks = Music.objects.all().order_by('-date_pub')
@@ -42,16 +42,20 @@ def user_register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
-            user = User.objects.create_user(**form.cleaned_data)
+            data = form.cleaned_data
+            user = User.objects.create_user(username=data['username'], email=data['email'], password=data['password1'])
             login(request,user)
-        return redirect('index')
     else:
         form = RegisterForm()
         
     return render(request, 'register.html', {'form':form})
 
 def user_login(request):
-    form = RegisterForm(request.POST)
+    form = LoginForm(request.POST)
+    if form.is_valid():
+        user = authenticate(request, **form.cleaned_data)
+        login(request,user)
+    return redirect('index')
 
 def test(request):
     if request.method == 'POST':
