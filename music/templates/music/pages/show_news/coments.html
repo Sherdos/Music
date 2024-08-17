@@ -1,0 +1,12 @@
+
+{% for comment in news.comments.all %}
+<div class="def-block news-meta mt clearfix">
+<div class="meta">
+    <span> <i class="icon-user mi"></i> {{comment.user}} </span>
+    <p>{{comment.text}}</p>
+    <span> <i class="icon-time mi"></i>{{comment.date}} </span>
+</div>
+</div><!-- def block -->
+
+{% endfor %}
+    

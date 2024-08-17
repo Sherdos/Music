@@ -1,15 +1,12 @@
 from django.shortcuts import render, redirect
 from music.models import Music, News
-from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate, logout
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from music.forms import NewsForm,RegisterForm, LoginForm
-
+from music.forms import NewsForm,CommentForm
+from users.forms import LoginForm
 # Create your views here.
 
 
 def index(request):
-    form = LoginForm()
+    form_login = LoginForm()
     music = Music.objects.latest('id')
     news = News.objects.all().order_by('-id')
     new_tracks = Music.objects.all().order_by('-date_pub')
@@ -22,40 +19,32 @@ def index(request):
         'musics':musics,
         'news':news,
         'new_tracks':new_tracks,
-        'form':form,
+        'form_login':form_login,
     }
     return render(request, 'music/pages/index/index.html', context)
 
 
 def show_news(request,id):
+    form_login = LoginForm()
     news = News.objects.get(id=id)
-    context = {
-        'news':news
-    }
-    return render(request, 'music/pages/show_news.html',context)
-
-
-
-
-def user_register(request):
-    
     if request.method == 'POST':
-        form = RegisterForm(request.POST)
+        form = CommentForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            user = User.objects.create_user(username=data['username'], email=data['email'], password=data['password1'])
-            login(request,user)
+            comment = form.save(commit=False)
+            comment.user = request.user
+            comment.news = news
+            comment.save()
     else:
-        form = RegisterForm()
-        
-    return render(request, 'music/pages/register.html', {'form':form})
+        form = CommentForm()
+    context = {
+        'news':news,
+        'form':form,
+        'form_login':form_login
+    }
+    return render(request, 'music/pages/show_news/show_news.html',context)
 
-def user_login(request):
-    form = LoginForm(request.POST)
-    if form.is_valid():
-        user = authenticate(request, **form.cleaned_data)
-        login(request,user)
-    return redirect('index')
+
+
 
 def test(request):
     if request.method == 'POST':
@@ -68,6 +57,3 @@ def test(request):
     return render(request, 'music/pages/test.html',{'form':form})
 
 
-def logout_user(request):
-    logout(request)
-    return redirect('index')

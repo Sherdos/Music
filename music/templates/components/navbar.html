@@ -6,7 +6,7 @@
         <div class="widget-content row-fluid">
             <form method="post" action="{% url 'user_login' %}" id="popup_login_form"> 
                 {% csrf_token %}  
-                {{form}}
+                {{form_login}}
                 <button type="submit" class="tbutton small"><span>Войти</span></button>
                 <a href="{% url 'user_register' %}" class="tbutton small"><span>Регистрация</span></a>
             </form><!-- login form -->

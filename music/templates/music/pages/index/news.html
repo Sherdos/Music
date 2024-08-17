@@ -11,7 +11,7 @@
                 <h3 class="news-title"> <a href="news_single.html">{{new.title}}</a> </h3>
                 <p>{{new.text}}</p>
                 <div class="meta">
-                    <span> <i class="icon-time mi"></i>{{new.created}} </span> | <span> <a href="#"><i class="icon-comments-alt"></i> 14</a> </span>
+                    <span> <i class="icon-time mi"></i>{{new.created}} </span> | <span> <a href="#"><i class="icon-comments-alt"></i> {{new.comments.count}}</a> </span>
                 </div><!-- meta -->
                 <a href="{% url 'show_news' new.id %}" class="sign-btn tbutton small"><span>Подробнее</span></a>
             </div><!-- span7 -->

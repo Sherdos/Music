@@ -35,7 +35,7 @@ class News(models.Model):
         
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Пользователь')
-    news = models.ForeignKey('music.News', on_delete=models.CASCADE, verbose_name='Новость')
+    news = models.ForeignKey('music.News', on_delete=models.CASCADE,related_name='comments', verbose_name='Новость')
     text = models.TextField(verbose_name='текст')
     date = models.DateTimeField(verbose_name='дата', auto_now_add=True)
     
