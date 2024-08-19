@@ -1,0 +1,180 @@
+{% extends 'music/base.html' %}
+{% load static %}
+{% block content %}
+<body id="fluidGridSystem">
+	<div id="layout" class="full">
+        {% include 'components/navbar.html' %}
+
+		<div class="under_header">
+			<img src="images/assets/breadcrumbs10.png" alt="#">
+		</div><!-- under header -->
+
+		<div class="page-content back_to_up">
+			<div class="row clearfix mb">
+				<div class="Alphabet">
+					<ul>
+						<li><a href="#"> Browse All </a></li>
+						<li><a href="#"> A </a></li>
+						<li><a href="#"> B </a></li>
+						<li><a href="#"> C </a></li>
+						<li><a href="#"> D </a></li>
+						<li><a href="#"> E </a></li>
+						<li><a href="#"> F </a></li>
+						<li><a href="#"> G </a></li>
+						<li><a href="#"> H </a></li>
+						<li><a href="#"> I </a></li>
+						<li><a href="#"> J </a></li>
+						<li><a href="#"> K </a></li>
+						<li><a href="#"> L </a></li>
+						<li><a href="#"> M </a></li>
+						<li><a href="#"> N </a></li>
+						<li><a href="#"> O </a></li>
+						<li><a href="#"> P </a></li>
+						<li><a href="#"> Q </a></li>
+						<li><a href="#"> R </a></li>
+						<li><a href="#"> S </a></li>
+						<li><a href="#"> T </a></li>
+						<li><a href="#"> U </a></li>
+						<li><a href="#"> V </a></li>
+						<li><a href="#"> W </a></li>
+						<li><a href="#"> X </a></li>
+						<li><a href="#"> Y </a></li>
+						<li><a href="#"> Z </a></li>
+						<li><a href="#"> 0-9 </a></li>
+						<li><a href="#"> Other Artists </a></li>
+					</ul>
+				</div><!-- breadcrumb -->
+			</div><!-- row -->
+
+			<div class="row row-fluid clearfix mbf">
+				<div class="span8 posts">
+					<div class="def-block">
+						<ul class="tabs">
+							<li><a href="#Latest" class="active"> Latest MP3's </a></li>
+							<li><a href="#Featured"> Featured </a></li>
+							<li><a href="#Albums"> New Albums</a></li>
+							<li><a href="#Soon"> Comming Soon </a></li>
+						</ul><!-- tabs -->
+
+						<ul class="tabs-content">
+							<li id="Latest" class="active">
+								<div class="post no-border no-mp clearfix">
+									<ul class="tab-content-items">
+										
+										{% for track in tracks %}
+											
+										<li class="grid_6">
+											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="{% static 'images/assets/thumb-mp3-1.jpg' %}" alt="#"></a>
+											<h3><a href="mp3_single_half.html">{{track.title}}</a></h3>
+											<span> Alexander </span>
+											<span> 22,250 Plays </span>
+										</li>
+										
+										{% endfor %}
+											
+									</ul>
+								</div><!-- latest -->
+							</li><!-- tab content -->
+
+							<li id="Albums">
+								<div class="mp3-albums">
+									<a href="mp3_play_list.html" class="grid_3">
+										<img src="images/assets/album1.jpg" alt="#">
+										<span><strong>Michele Jordan</strong>New Day</span>
+									</a>
+									<a href="mp3_play_list.html" class="grid_3">
+										<img src="images/assets/album2.jpg" alt="#">
+										<span><strong>Dj Alaska</strong>No Name No Number</span>
+									</a>
+									<a href="mp3_play_list.html" class="grid_3">
+										<img src="images/assets/album3.jpg" alt="#">
+										<span><strong>Alexander Lea</strong>R.T.O 2</span>
+									</a>
+									<a href="mp3_play_list.html" class="grid_3">
+										<img src="images/assets/album4.jpg" alt="#">
+										<span><strong>Jessica Alma</strong>Love Rock'n Roll</span>
+									</a>
+									<a href="mp3_play_list.html" class="grid_3">
+										<img src="images/assets/album5.jpg" alt="#">
+										<span><strong>Bob Jexman</strong>Your Heart in my Hand</span>
+									</a>
+									<a href="mp3_play_list.html" class="grid_3">
+										<img src="images/assets/album6.jpg" alt="#">
+										<span><strong>Abele</strong>Set Rain to The Fire</span>
+									</a>
+								</div><!-- mp3 albums -->
+							</li><!-- tab content -->
+
+							<li id="Soon">
+								<p>Nulla id ligula arcu. Integer et tincidunt lectus. Duis id ligula diam, quis dapibus erat. Curabitur nec libero et est vulputate sollicitudin. Fusce sit amet turpis sed mauris volutpat posuere.</p>
+								<div class="news row-fluid">
+									<div class="span5"><img class="four-radius" src="images/assets/news1.jpg" alt="#"></div>
+									<div class="span7">
+										<h3 class="news-title"> Michele Jordan Release New Album in September 2014 </h3>
+										<p>Nine Inch Nails aren't on the bill, and they won't play the fest anytime soon. Soundwave promoter AJ Maddah started a Twitter war-of-words with a few choice comments about NIN's Trent Reznor. mauris volutpat posuere. Morbi vulputate, odio eget adipiscing faucibus, lorem ipsum facilisis justo, gravida tempus orci nisi ac eros. Pellentesque metus dolor.</p>
+									</div><!-- span7 -->
+								</div><!-- news -->
+								<div class="news row-fluid">
+									<div class="span5"><img class="four-radius" src="images/assets/news3.jpg" alt="#"></div>
+									<div class="span7">
+										<h3 class="news-title"> New Track Named Without You (Remix) </h3>
+										<p>Nine Inch Nails aren't on the bill, and they won't play the fest anytime soon. Soundwave promoter AJ Maddah started a Twitter war-of-words with a few choice comments about NIN's Trent Reznor. mauris volutpat posuere. Morbi vulputate, odio eget adipiscing faucibus, lorem ipsum facilisis justo, gravida tempus orci nisi ac eros. Pellentesque metus dolor.</p>
+									</div><!-- span7 -->
+								</div><!-- news -->
+							</li><!-- tab content -->
+
+						</ul><!-- end tabs -->
+
+					</div><!-- def block -->
+				</div><!-- span8 posts -->
+
+				<div class="span4 sidebar">
+					<div class="def-block widget">
+						<h4> Ads </h4><span class="liner"></span>
+						<div class="widget-content tac">
+							<a href="#" title="Advertise"><img src="images/ads1.gif" alt="#"></a>
+						</div><!-- widget content -->
+					</div><!-- def block widget ads -->
+
+					<div class="def-block widget">
+						<h4> Featured Videos </h4><span class="liner"></span>
+						<div class="widget-content row-fluid">
+							<div class="videos clearfix flexslider">
+								<ul class="slides">
+									<li class="featured-video">
+										<a href="video_single_wide.html">
+											<img src="images/assets/video1.jpg" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>I Know You Want Me</h3>
+											<span>Fitbull</span>
+										</a>
+									</li><!-- slide -->
+									<li class="featured-video">
+										<a href="video_single_wide.html">
+											<img src="images/assets/video2.jpg" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>I Like It</h3>
+											<span>Enrique</span>
+										</a>
+									</li><!-- slide -->
+									<li class="featured-video">
+										<a href="video_single_wide.html">
+											<img src="images/assets/video3.jpg" alt="#">
+											<i class="icon-play-sign"></i>
+											<h3>Tommorow</h3>
+											<span>Dj Michele</span>
+										</a>
+									</li><!-- slide -->
+								</ul>
+							</div>
+						</div><!-- widget content -->
+					</div><!-- def block widget videos -->
+
+				</div><!-- span4 sidebar -->
+			</div><!-- row clearfix -->
+		</div><!-- end page content -->
+
+		{% include 'components/footer.html' %}
+	</div>
+	
+{% endblock content %}

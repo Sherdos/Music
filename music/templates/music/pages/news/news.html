@@ -1,0 +1,24 @@
+{% extends 'music/base.html' %}
+{% load static %}
+{% block content %}
+<body id="fluidGridSystem">
+	<div id="layout" class="full" style="display: flex;">
+        {% include 'components/navbar.html' %}
+        <div class="">
+
+            <div class="page-content" style="margin-top: 150px;">
+    
+                <div class="row row-fluid clearfix mbf">
+                    
+                {% include 'music/pages/index/news.html' %}
+                </div><!-- row clearfix -->
+    
+            </div><!-- end page content -->
+        
+        </div>
+
+	{% include 'components/footer.html' %}
+	</div>
+	
+{% endblock content %}
+	

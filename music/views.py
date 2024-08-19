@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from music.models import Music, News
 from music.forms import NewsForm,CommentForm
 from users.forms import LoginForm
+from django.views.generic import ListView
 # Create your views here.
 
 
@@ -57,3 +58,13 @@ def test(request):
     return render(request, 'music/pages/test.html',{'form':form})
 
 
+class NewsListView(ListView):
+    template_name = 'music/pages/news/news.html'
+    model = News
+    context_object_name = 'news'
+    
+
+class TrackListView(ListView):
+    template_name = 'music/pages/tracks/mp3s.html'
+    model = Music
+    context_object_name = 'tracks'
