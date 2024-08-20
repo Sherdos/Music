@@ -9,7 +9,7 @@
             <div class="span5"><img class="four-radius" src="{{new.image.url}}" alt="#"></div>
             <div class="span7">
                 <h3 class="news-title"> <a href="news_single.html">{{new.title}}</a> </h3>
-                <p>{{new.text}}</p>
+                <p>{{new.text|truncatechars:400 }}</p>
                 <div class="meta">
                     <span> <i class="icon-time mi"></i>{{new.created}} </span> | <span> <a href="#"><i class="icon-comments-alt"></i> {{new.comments.count}}</a> </span>
                 </div><!-- meta -->

@@ -1,4 +1,5 @@
 {% load static %}
+{% load my_tag %}
 <!-- popup login -->
 <div id="popupLogin">
     <div class="def-block widget">
@@ -6,7 +7,7 @@
         <div class="widget-content row-fluid">
             <form method="post" action="{% url 'user_login' %}" id="popup_login_form"> 
                 {% csrf_token %}  
-                {{form_login}}
+                {% get_login_form %}
                 <button type="submit" class="tbutton small"><span>Войти</span></button>
                 <a href="{% url 'user_register' %}" class="tbutton small"><span>Регистрация</span></a>
             </form><!-- login form -->
@@ -42,8 +43,8 @@
             </div><!-- end social -->
 
             <div class="search">
-                <form action="search.html" id="search" method="get">
-                    <input id="inputhead" name="search" type="text" onfocus="if (this.value=='Start Searching...') this.value = '';" onblur="if (this.value=='') this.value = 'Start Searching...';" value="Start Searching..." placeholder="Start Searching ...">
+                <form action="{% url 'search' %}" id="search" method="get">
+                    <input id="inputhead" name="key" type="text" onfocus="if (this.value=='Start Searching...') this.value = '';" onblur="if (this.value=='') this.value = 'Start Searching...';" value="Start Searching..." placeholder="Start Searching ...">
                     <button type="submit"><i class="icon-search"></i></button>
                 </form><!-- end form -->
             </div><!-- search -->
@@ -58,10 +59,10 @@
 
             <nav>
                 <ul class="sf-menu">
-                    <li class="current selectedLava"><a href="{% url 'index' %}">Главная</a></li>
-                    <li><a href="index.html">Мои треки</a></li>
-                    <li><a href="{% url 'tracks' %}">Треки</a></li>
-                    <li><a href="{% url 'news' %}">Новости</a></li>
+                    <li {% if title == 'Главная' %}class="current selectedLava"{% endif %}><a href="{% url 'index' %}">Главная</a></li>
+                    <li ><a href="index.html">Мои треки</a></li>
+                    <li {% if title == 'Треки' %}class="current selectedLava"{% endif %} ><a href="{% url 'tracks' %}">Треки</a></li>
+                    <li {% if title == 'Новости' %}class="current selectedLava"{% endif %}><a href="{% url 'news' %}">Новости</a></li>
                 </ul><!-- end menu -->
             </nav><!-- end nav -->
 
