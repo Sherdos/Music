@@ -88,7 +88,7 @@
 					</div><!-- def block widget videos -->
 
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-						<h4> Popular Tracks </h4><span class="liner"></span>
+						<h4> Новые треки</h4><span class="liner"></span>
 						<div class="widget-content row-fluid">
 							<div class="scroll-mp3" style="height: 220px;">
 								<div class="content">
@@ -97,10 +97,10 @@
 									{% for track in new_tracks %}
 										
 									<li class="clearfix">
-										<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="{% static 'images/assets/thumb-mp3-1.jpg' %}" alt="#"></a>
+										<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src=" {% if track.image %} {{track.image.url}} {% else %} {% static 'no_music.jpeg' %} {% endif %}" alt="#"></a>
 										<h3><a href="mp3_single_half.html">{{track.title}}</a></h3>
-										<span> Alexander </span>
-										<span> 1,892,250 Plays </span>
+										<span> {{track.author}} </span>
+										<span>Прослушано  {{track.views}} </span>
 									</li>
 									{% endfor %}
 										

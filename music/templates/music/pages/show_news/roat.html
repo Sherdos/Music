@@ -2,7 +2,7 @@
     <div class="breadcrumbIn">
         <ul>
             <li><a href="{% url 'index' %}" class="toptip" original-title="Главная"> <i class="icon-home"></i> </a></li>
-            <li><a href="news.html"> Новости </a></li>
+            <li><a href="{% url 'news' %}"> Новости </a></li>
             <li>  {{news.title}}</li>
         </ul>
     </div><!-- breadcrumb -->

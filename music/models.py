@@ -9,6 +9,9 @@ class Music(models.Model):
     discription = models.TextField(verbose_name='описание')
     date_pub = models.DateField(verbose_name='дата пубикации')
     file = models.FileField(verbose_name='файл', upload_to='music/')
+    author = models.CharField(verbose_name='автор', max_length=255, null=True)
+    views = models.PositiveIntegerField(verbose_name='просмотры', default=0)
+    image = models.ImageField(verbose_name='фото', upload_to='photo/', null=True)
     
     def __str__(self) -> str:
         return f'{self.title}'
