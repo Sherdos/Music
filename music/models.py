@@ -49,3 +49,13 @@ class Comment(models.Model):
     class Meta:
         verbose_name = 'Коментарий'
         verbose_name_plural = 'Коментарии'
+        
+        
+class Slide(models.Model):
+    
+    image = models.ImageField(upload_to='slide/', verbose_name='слайд')
+    
+    
+    class Meta:
+        verbose_name = 'Слайд'
+        verbose_name_plural = 'Слайды'

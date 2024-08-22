@@ -1,5 +1,5 @@
 from django.contrib import admin
-from music.models import Music, News, Comment
+from music.models import Music, News, Comment, Slide
 # Register your models here.
 
 class AdminMusic(admin.ModelAdmin):
@@ -11,4 +11,5 @@ class AdminMusic(admin.ModelAdmin):
 
 admin.site.register(News)
 admin.site.register(Comment)
+admin.site.register(Slide)
 admin.site.register(Music,AdminMusic)

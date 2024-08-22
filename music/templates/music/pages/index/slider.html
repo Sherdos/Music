@@ -6,142 +6,16 @@
         <div class="tp-banner" >
             <ul>
                 <!-- SLIDE  -->
-                <li data-transition="random" data-slotamount="7" data-masterspeed="5000" >
-                    <!-- MAIN IMAGE -->
-                    <img src="{% static 'images/slides/slider1.jpg' %}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                    <!-- LAYERS -->
-                    <div class="tp-caption fade"
-                        data-x="566"
-                        data-y="306"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="800"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11"><img src="{% static 'images/slides/slide1-cap1.png' %}" alt=""></div>
-
-                    <div class="tp-caption lfb"
-                        data-x="566"
-                        data-y="305"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="1200"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11"><img src="{% static 'images/slides/slide1-cap2.png' %}" alt=""></div>
-
-                    <div class="tp-caption lft"
-                        data-x="741"
-                        data-y="305"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="1200"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11"><img src="{% static 'images/slides/slide1-cap3.png' %}" alt=""></div>
-
-                    <div class="tp-caption lfb"
-                        data-x="711"
-                        data-y="374"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="2000"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11"><img src="{% static 'images/slides/slide1-cap4.png' %}" alt=""></div>
-
-                    <div class="tp-caption lft"
-                        data-x="714"
-                        data-y="374"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="2000"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11"><img src="{% static 'images/slides/slide1-cap5.png' %}" alt=""></div>
-                </li>
-
-                <!-- SLIDE  -->
-                <li data-transition="random" data-slotamount="7" data-masterspeed="5000" >
-                    <!-- MAIN IMAGE -->
-                    <img src="{% static 'images/slides/slider9.jpg' %}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                    <!-- LAYERS -->
-                    <div class="tp-caption modern_big_bluebg randomrotate"
-                        data-x="603"
-                        data-y="384"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="1200"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11">Responsive Design</div>
-
-                    <div class="tp-caption modern_big_redbg randomrotate"
-                        data-x="701"
-                        data-y="328"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="1700"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11">Retina Ready</div>
-                </li>
-
-                <!-- SLIDE  -->
-                <li data-transition="random" data-slotamount="7" data-masterspeed="5000" >
-                    <!-- MAIN IMAGE -->
-                    <img src="{% static 'images/slides/slider3.jpg' %}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
-                    <!-- LAYERS -->
-                    <div class="tp-caption modern_big_redbg randomrotate"
-                        data-x="560"
-                        data-y="253"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="1000"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11">Revolution Slider</div>
-
-                    <div class="tp-caption modern_m_bluebg randomrotate"
-                        data-x="560"
-                        data-y="310"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="1500"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11">Awesome MusicPlayer</div>
-                        
-                    <div class="tp-caption modern_m_bluebg randomrotate"
-                        data-x="560"
-                        data-y="355"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="2000"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11">Wonderful Gallery</div>
-
-                    <div class="tp-caption modern_m_bluebg randomrotate"
-                        data-x="560"
-                        data-y="400"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="2500"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11">Seo Optimized</div>
-
-                    <div class="tp-caption modern_m_bluebg randomrotate"
-                        data-x="560"
-                        data-y="445"
-                        data-hoffset="0"
-                        data-speed="700"
-                        data-start="3000"
-                        data-easing="Back.easeInOut"
-                        data-endspeed="300"
-                        style="z-index: 11">and Much More ...</div>
-                </li>
+                 
+                 {% for slide  in slides %}
+                    
+                 <li data-transition="random" data-slotamount="7" data-masterspeed="5000" >
+                     <!-- MAIN IMAGE -->
+                     <img src="{{slide.image.url}}"  alt="slidebg1"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+                     <!-- LAYERS -->
+                 </li>
+                 {% endfor %}
+                    
 
             </ul><!-- End Slides -->
             <div class="tp-bannertimer"></div>										

@@ -1,7 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-from music.models import Music, News
+from music.models import Music, News, Slide
 from music.forms import NewsForm,CommentForm
 from users.forms import LoginForm
 from django.views.generic import ListView, DetailView, CreateView
@@ -25,6 +25,7 @@ class IndexView(ListView):
             'news':News.objects.all().order_by('-id'),
             'new_tracks':Music.objects.all().order_by('-date_pub'),
             'form_login': LoginForm(),
+            'slides':Slide.objects.all(),
         }
         context.update(context2)
         return context

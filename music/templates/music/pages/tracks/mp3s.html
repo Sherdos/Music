@@ -62,13 +62,12 @@
 									<ul class="tab-content-items">
 										
 										{% for track in tracks %}
-											
 										<li class="grid_6">
-											<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src="{% static 'images/assets/thumb-mp3-1.jpg' %}" alt="#"></a>
-											<h3><a href="mp3_single_half.html">{{track.title}}</a></h3>
-											<span> Alexander </span>
-											<span> 22,250 Plays </span>
+											{% include 'music/pages/index/track.html' %}
+
+											
 										</li>
+										
 										
 										{% endfor %}
 											

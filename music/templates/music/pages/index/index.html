@@ -95,12 +95,9 @@
 									<ul class="tab-content-items">
 									
 									{% for track in new_tracks %}
-										
 									<li class="clearfix">
-										<a class="m-thumbnail" href="mp3_single_half.html"><img width="50" height="50" src=" {% if track.image %} {{track.image.url}} {% else %} {% static 'no_music.jpeg' %} {% endif %}" alt="#"></a>
-										<h3><a href="mp3_single_half.html">{{track.title}}</a></h3>
-										<span> {{track.author}} </span>
-										<span>Прослушано  {{track.views}} </span>
+										{% include 'music/pages/index/track.html' %}
+
 									</li>
 									{% endfor %}
 										
