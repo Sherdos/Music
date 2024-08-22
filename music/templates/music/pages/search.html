@@ -29,7 +29,7 @@
 							<div class="widget-content">
 								<ul class="tab-content-items">
 									
-									{% for track in tracks %}
+									{% for track in search.musics %}
 										
 									<li>
 											{% include 'music/pages/index/track.html' %}
@@ -47,22 +47,15 @@
 							<h4> Videos </h4><span class="liner"></span>
 							<div class="widget-content">
 								<div class="video-grid clearfix">
+									
+									{% for video in search.videos %}
+										
 									<a href="video_single_wide.html" class="grid_6">
-										<img src="images/assets/videos3.jpg" alt="#">
-										<span><strong>Alfered Graceful</strong>Tonight (Remix)</span>
+										<img src="{{video.image.url}}" alt="#">
+										<span><strong>{{video.author}}</strong>{{video.title}}</span>
 									</a>
-									<a href="video_single_wide.html" class="grid_6">
-										<img src="images/assets/videos6.jpg" alt="#">
-										<span><strong>Dj Back</strong>I Like It (Radio Edit)</span>
-									</a>
-									<a href="video_single_wide.html" class="grid_6">
-										<img src="images/assets/videos7.jpg" alt="#">
-										<span><strong>Anna</strong>Bad Dog</span>
-									</a>
-									<a href="video_single_wide.html" class="grid_6">
-										<img src="images/assets/videos8.jpg" alt="#">
-										<span><strong>Armando</strong>On Time</span>
-									</a>
+									{% endfor %}
+										
 								</div>
 							</div><!-- widget content -->
 						</div><!-- block -->

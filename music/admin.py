@@ -1,5 +1,5 @@
 from django.contrib import admin
-from music.models import Music, News, Comment, Slide
+from music.models import Music, News, Comment, Slide, Video
 # Register your models here.
 
 class AdminMusic(admin.ModelAdmin):
@@ -8,7 +8,7 @@ class AdminMusic(admin.ModelAdmin):
     list_filter = ('date_pub',)
     
 
-
+admin.site.register(Video)
 admin.site.register(News)
 admin.site.register(Comment)
 admin.site.register(Slide)

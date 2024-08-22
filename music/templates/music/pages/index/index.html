@@ -54,34 +54,23 @@
 					</div><!-- def block widget events -->
 
 					<div class="def-block widget animtt" data-gen="fadeUp" style="opacity:0;">
-						<h4> Featured Videos </h4><span class="liner"></span>
+						<h4> Видео </h4><span class="liner"></span>
 						<div class="widget-content row-fluid">
 							<div class="videos clearfix flexslider">
 								<ul class="slides">
+									
+									{% for video in videos %}
+										
 									<li class="featured-video">
 										<a href="video_single_wide.html">
-											<img src="{% static 'images/assets/video1.jpg' %}" alt="#">
+											<img src="{{video.image.url}}" alt="#">
 											<i class="icon-play-sign"></i>
-											<h3>I Know You Want Me</h3>
-											<span>Fitbull</span>
+											<h3>{{video.title}}</h3>
+											<span>{{video.author}}</span>
 										</a>
 									</li><!-- slide -->
-									<li class="featured-video">
-										<a href="video_single_wide.html">
-											<img src="{% static 'images/assets/video2.jpg' %}" alt="#">
-											<i class="icon-play-sign"></i>
-											<h3>I Like It</h3>
-											<span>Enrique</span>
-										</a>
-									</li><!-- slide -->
-									<li class="featured-video">
-										<a href="video_single_wide.html">
-											<img src="{% static 'images/assets/video3.jpg' %}" alt="#">
-											<i class="icon-play-sign"></i>
-											<h3>Tommorow</h3>
-											<span>Dj Michele</span>
-										</a>
-									</li><!-- slide -->
+									{% endfor %}
+										
 								</ul>
 							</div>
 						</div><!-- widget content -->

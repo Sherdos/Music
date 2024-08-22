@@ -1,7 +1,7 @@
 from typing import Any
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
-from music.models import Music, News, Slide
+from music.models import Music, News, Slide, Video
 from music.forms import NewsForm,CommentForm
 from users.forms import LoginForm
 from django.views.generic import ListView, DetailView, CreateView
@@ -26,6 +26,7 @@ class IndexView(ListView):
             'new_tracks':Music.objects.all().order_by('-date_pub'),
             'form_login': LoginForm(),
             'slides':Slide.objects.all(),
+            'videos':Video.objects.all(),
         }
         context.update(context2)
         return context
@@ -91,12 +92,17 @@ class SearchView(ListView):
     
     template_name = 'music/pages/search.html'
     model = Music
-    context_object_name = 'tracks'
+    context_object_name = 'search'
     
     def get_queryset(self) -> QuerySet[Any]:
         key = self.request.GET.get('key')
         if key:
-            return Music.objects.filter(title__icontains = key)
-        return super().get_queryset()
+            musics = Music.objects.filter(title__icontains = key)
+            videos = Video.objects.filter(title__icontains = key)
+        musics = Music.objects.all()
+        videos = Video.objects.all()
+        return {'musics':musics,'videos':videos}
+    
+    
     
     

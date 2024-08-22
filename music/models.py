@@ -59,3 +59,17 @@ class Slide(models.Model):
     class Meta:
         verbose_name = 'Слайд'
         verbose_name_plural = 'Слайды'
+        
+class Video(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Название')
+    video = models.FileField(upload_to='video/file/', verbose_name='Видео')
+    text = models.TextField(verbose_name='Текст')
+    author = models.CharField(max_length=255, verbose_name = 'Автор')
+    image = models.ImageField(upload_to='video/image/', verbose_name='Обложка')
+    
+    class Meta:
+        verbose_name = 'Видео'
+        verbose_name_plural = 'Видео'
+        
+    def __str__(self) -> str:
+        return f'{self.title} от {self.author}'

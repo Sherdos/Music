@@ -6,10 +6,10 @@
 
             <div class="foot-menu">
                 <ul>
-                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="{% url 'index' %}">Главная</a></li>
                     <li><a href="mp3s.html">Мои треки</a></li>
-                    <li><a href="videos.html">Популярные</a></li>
-                    <li><a href="gallery.html">Новые</a></li>
+                    <li><a href="{% url 'tracks' %}">Треки</a></li>
+                    <li><a href="{% url 'news' %}">Новости</a></li>
                 </ul><!-- end links -->
             </div><!-- end foot menu -->
         </div><!-- row -->
