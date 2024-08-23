@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from users.forms import LoginForm, RegisterForm
+from django.views.generic import DetailView
+
+from users.models import Profile
 
 # Create your views here.
 
@@ -22,7 +25,7 @@ def user_register(request):
         'form_login':form_login,
         'form':form,
     }
-    return render(request, 'music/pages/register.html', context)
+    return render(request, 'users/register.html', context)
 
 def user_login(request):
     form = LoginForm(request.POST)
@@ -34,3 +37,10 @@ def user_login(request):
 def logout_user(request):
     logout(request)
     return redirect('index')
+
+
+class MyTracksView(DetailView):
+    model = Profile
+    template_name = 'users/my_tracks.html'
+    context_object_name = 'profile'
+    
