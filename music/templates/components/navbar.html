@@ -60,7 +60,9 @@
             <nav>
                 <ul class="sf-menu">
                     <li {% if title == 'Главная' %}class="current selectedLava"{% endif %}><a href="{% url 'index' %}">Главная</a></li>
-                    <li ><a href="{% url 'my_tracks' request.user.id %}">Мои треки</a></li>
+                    {% if request.user.is_authenticated %}
+                    <li {% if title == 'Мои треки' %}class="current selectedLava"{% endif %} ><a href="{% url 'my_tracks' request.user.id %}">Мои треки</a></li>
+                    {% endif %}
                     <li {% if title == 'Треки' %}class="current selectedLava"{% endif %} ><a href="{% url 'tracks' %}">Треки</a></li>
                     <li {% if title == 'Новости' %}class="current selectedLava"{% endif %}><a href="{% url 'news' %}">Новости</a></li>
                 </ul><!-- end menu -->

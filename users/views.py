@@ -18,6 +18,7 @@ def user_register(request):
             data = form.cleaned_data
             user = User.objects.create_user(username=data['username'], email=data['email'], password=data['password1'])
             login(request,user)
+            return redirect('index')
     else:
         form = RegisterForm()
     
@@ -43,4 +44,12 @@ class MyTracksView(DetailView):
     model = Profile
     template_name = 'users/my_tracks.html'
     context_object_name = 'profile'
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Мои треки'
+        return context
+    
+    
     

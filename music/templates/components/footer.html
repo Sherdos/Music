@@ -7,7 +7,12 @@
             <div class="foot-menu">
                 <ul>
                     <li><a href="{% url 'index' %}">Главная</a></li>
-                    <li><a href="mp3s.html">Мои треки</a></li>
+                    
+                    {% if request.user.is_authenticated %}
+                        
+                    <li><a href="{% url 'my_tracks' request.user.id %}">Мои треки</a></li>
+                    {% endif %}
+                        
                     <li><a href="{% url 'tracks' %}">Треки</a></li>
                     <li><a href="{% url 'news' %}">Новости</a></li>
                 </ul><!-- end links -->
