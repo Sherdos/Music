@@ -5,6 +5,8 @@ from music.models import Music, News, Slide, Video
 from music.forms import NewsForm,CommentForm
 from users.forms import LoginForm
 from django.views.generic import ListView, DetailView, CreateView
+
+from users.models import Profile
 # Create your views here.
 
 
@@ -103,6 +105,17 @@ class SearchView(ListView):
         videos = Video.objects.all()
         return {'musics':musics,'videos':videos}
     
+class ShowMp3View(DetailView):
+    template_name = 'music/pages/mp3.html'
+    model = Music
+    context_object_name = 'track'
     
+
+def add_my_tracks(request, id):
+    track = Music.objects.get(id=id)
+    profile = Profile.objects.get(user=request.user)
+    profile.my_tracks_list.add(track)
+    profile.save()
+    return redirect('show_track', id)
     
     

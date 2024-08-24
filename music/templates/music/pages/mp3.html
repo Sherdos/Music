@@ -1,0 +1,56 @@
+{% extends 'music/base.html' %}
+{% load static  %}
+
+{% block content %}
+	
+<body id="fluidGridSystem">
+	<div id="layout" class="full">
+		{% include 'components/navbar.html' %}
+		<div class="under_header">
+			<img src="{% static 'images/assets/breadcrumbs2.png' %} " alt="#">
+		</div><!-- under header -->
+
+		<div class="page-content back_to_up">
+			<div class="row clearfix mb">
+				<div class="breadcrumbIn">
+					<ul>
+						<li><a href="{% url 'index' %}" class="toptip" title="Главная"> <i class="icon-home"></i> </a></li>
+						<li><a href="{% url 'tracks' %}"> MP3s </a></li>
+						<li> {{track.title}} </li>
+					</ul>
+				</div><!-- breadcrumb -->
+			</div><!-- row -->
+
+			<div class="row row-fluid clearfix mbf">
+				<div class="span8 posts">
+					<div class="def-block">
+						<div class="post row-fluid clearfix">
+							<div class="music-single mbf clearfix"></div><!-- Player -->
+							<h3>{{track.title}}</h3>
+							<p>{{track.discription}}</p>
+							
+							{% if request.user.is_authenticated and track not in request.user.profile.my_tracks_list.all %}
+								
+							<a href="{% url 'add_track' track.id %}" class="sign-btn tbutton small">Добавить в мои треки</a>
+							{% endif %}
+								
+							<p>
+								<span> Tags: </span>
+								<a href="#" class="#"> {{track.author}} </a>
+							</p><!-- tags -->
+
+
+
+							
+						</div><!-- post -->
+
+					</div><!-- def block -->
+				</div><!-- span8 posts -->
+
+			</div><!-- row clearfix -->
+		</div><!-- end page content -->
+
+		{% include 'components/footer.html' %}
+	</div><!-- end layout -->
+
+{% endblock content %}
